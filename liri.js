@@ -6,7 +6,7 @@ var fs = require("fs");
 
 var twitterKeys = new Twitter(keys.twitter);
 var Spotify = new Spotify(keys.spotify);
-var Omdb = keys.omdb.api_key
+var Omdb = keys.omdb.api_key;
 
 var userInput1 = process.argv[2];
 var userInput2 = process.argv[3];
@@ -64,7 +64,7 @@ if (userInput1 === "do-what-it-says") {
   			myTweets();
   		}
   	}
-	})
+  });
 	logging();
 }
 function movieThis (input) {
@@ -76,11 +76,11 @@ function movieThis (input) {
             	console.log("IMDB Rating: " + JSON.parse(body).Ratings[0].Value);
             	console.log("Rotten Tomatoes: " + JSON.parse(body).Ratings[1].Value);
             	console.log("Country: " + JSON.parse(body).Country);
-            	console.log("Language: " + JSON.parse(body).Language)
+              console.log("Language: " + JSON.parse(body).Language);
             	console.log("Plot: " + JSON.parse(body).Plot);
             	console.log("Actors: " + JSON.parse(body).Actors);
 			}
-		})
+    });
 }
 function spotifyThis (input) {
 	Spotify.search({ type: 'track', query: input }, function(err, data) {
@@ -103,12 +103,7 @@ function myTweets () {
 	  if (!error) {
 
 	  	for (var i = 0; i < tweets.length; i++) {
-	  		console.log("Tweet: '" + tweets[i].text + "' created on " + tweets[i].created_at )
+        console.log("Tweet: '" + tweets[i].text + "' created on " + tweets[i].created_at );
 	  	}
 
-
-	  }
-	});
-
-}
-}
+  }
